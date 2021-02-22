@@ -121,35 +121,6 @@ class createCNNModel:
         np.save('model_histroy.npy',model_histroy)
 
 #%%
-
-#loading train_data and test_data 
-train_data = np.load('/home/rjn/Pictures/major project/data/train_name.npy')
-land_data = np.load('/home/rjn/Pictures/major project/data/land_name.npy')
-
-print('original_shape: \t' , train_data.shape)
-print(land_data.shape)
-
-#pre-processing all data   
-train_data = np.array(train_data).reshape(-1, 96,96,1)
-
-print(train_data.shape)
-#%%
-
-#saving rows,col,dim of datasets to input_shape variable
-#to give input size /shape to CNN model 
-input_shape = (None , ) + train_data.shape[1:]
-output_size = land_data.shape[1:][0]
-
-#Split arrays or matrices into random train and test subsets
-train_data ,vtrain_data ,land_data, vland_data = train_test_split(train_data, land_data  ,
-                                                       test_size=0.08, seed=32)
-print(train_data.shape)
-print(land_data.shape)
-
-print(vtrain_data.shape)
-print(vland_data.shape)
-
-#%%
 epochs = 5
 batch_size = 32
 
